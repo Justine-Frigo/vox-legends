@@ -7,7 +7,7 @@ export const CHAMPIONS: Champion[] = [
   { name: "Aatrox", id: 266 },
   { name: "Ahri", id: 103 },
   { name: "Akali", id: 84 },
-  { name: "Akshan", id: 866 },
+  { name: "Akshan", id: 166 },
   { name: "Alistar", id: 12 },
   { name: "Ambessa", id: 799 },
   { name: "Amumu", id: 32 },
