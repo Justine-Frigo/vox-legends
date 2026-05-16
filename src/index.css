@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cinzel", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-hex-gold: #c89b3c;
+  --color-hex-gold-light: #f0e6d2;
+  --color-hex-blue: #0ac8b9;
+  --color-hex-blue-dark: #005a82;
+  --color-hex-dark: #010a13;
+  --color-hex-dark-accent: #091428;
+}
+
+@layer base {
+  body {
+    @apply bg-hex-dark text-hex-gold-light font-sans antialiased;
+    background-image: 
+      radial-gradient(circle at 50% -20%, var(--color-hex-blue-dark) 0%, transparent 70%),
+      radial-gradient(circle at 0% 100%, #05141c 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-wider;
+  }
+}
+
+@layer components {
+  .hex-card {
+    @apply bg-hex-dark-accent/80 backdrop-blur-md border border-hex-gold/30 rounded-sm p-6 shadow-2xl relative;
+  }
+
+  .hex-card::before {
+    content: "";
+    @apply absolute inset-0 border-[0.5px] border-hex-gold/10 pointer-events-none m-1;
+  }
+
+  .hex-button {
+    @apply relative px-6 py-2 bg-hex-gold/10 hover:bg-hex-gold/20 border border-hex-gold text-hex-gold-light 
+           font-display text-sm uppercase tracking-widest transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+    box-shadow: inset 0 0 10px rgba(200, 155, 60, 0.1);
+  }
+
+  .hex-button:hover:not(:disabled) {
+    @apply shadow-[0_0_15px_rgba(200,155,60,0.3)];
+    box-shadow: inset 0 0 15px rgba(200, 155, 60, 0.2);
+  }
+
+  .hex-input {
+    @apply bg-black/40 border border-hex-gold/40 text-hex-gold-light px-4 py-2 focus:outline-none focus:border-hex-blue focus:ring-1 focus:ring-hex-blue/50 transition-all;
+  }
+
+  .gold-gradient-text {
+    @apply bg-linear-to-b from-hex-gold-light to-hex-gold bg-clip-text text-transparent italic;
+  }
+}
+
